@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceSaathi</title>
+  <!-- Font‑Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">ServiceSaathi</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="register.html">Register Provider</a></li>
+        <li><a href="dynamic.html">Our Services</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+
+  <!-- Header Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>Welcome to ServiceSaathi</h1>
+      <p>Your Local Service Marketplace</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Service Listing -->
+    <section id="services" class="section">
+      <h2>Our Services</h2>
+      <div class="cards">
+        <div class="service-card" onclick="sendWhatsApp('Plumber')">
+          <i class="fa fa-wrench fa-2x"></i>
+          <h3>Plumber</h3>
+          <p>Rate: ₹200</p>
+        </div>
+        <div class="service-card" onclick="sendWhatsApp('Electrician')">
+          <i class="fa fa-bolt fa-2x"></i>
+          <h3>Electrician</h3>
+          <p>Rate: ₹200</p>
+        </div>
+        <div class="service-card" onclick="sendWhatsApp('Painter')">
+          <i class="fa fa-paint-roller fa-2x"></i>
+          <h3>Painter</h3>
+          <p>Rate: ₹200</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <!-- Booking Form -->
+<section id="booking" class="section">
+  <h2>Book a Service</h2>
+  <form id="bookingForm" class="booking-form" onsubmit="handleBooking(event)">
+    <!-- Name -->
+    <label>
+      Your Name:
+      <input type="text" id="userName" required />
+    </label>
+
+    <!-- Contact Number: only 10 digits -->
+    <label>
+      Contact Number:
+      <input
+        type="tel"
+        id="userContact"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        placeholder="10‑digit mobile"
+        title="Enter a 10‑digit mobile number"
+        required
+      />
+    </label>
+
+    <!-- Service Required: dropdown + “Other” -->
+    <label>
+      Service Required:
+      <select id="serviceRequired" required onchange="toggleOther(this.value)">
+        <option value="" disabled selected>Select a service</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Painter">Painter</option>
+        <!-- add more of your services here -->
+        <option value="Other">Other</option>
+      </select>
+    </label>
+
+    <!-- Hidden “Other” field -->
+    <label id="otherLabel" style="display:none;">
+      Please specify:
+      <input type="text" id="otherService" placeholder="Your requirement" />
+    </label>
+
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</section>
+
+
+    <!-- Provider Link -->
+    <section id="provider" class="section">
+      <p>Are you a service provider? <a href="register.html" class="btn-link">Register here</a></p>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="section light-bg">
+      <h2>About Us</h2>
+      <p>ServiceSaathi connects families and individuals with skilled service providers—plumbers, electricians, painters, and more—at transparent rates and a click away. Our mission is to make local help reliable, affordable, and accessible.</p>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="section">
+      <h2>Contact Us</h2>
+      <p><i class="fa fa-envelope"></i> support@servicesaathi.com</p>
+      <p><i class="fa fa-phone"></i> +91‑7318090728</p>
+    </section>
+
+  </main>
+
+  <!-- Floating WhatsApp Widget -->
+  <div id="whatsapp-widget"></div>
+  <script>
+    (function () {
+      var options = {
+        whatsapp: "+91-7318090728", // your number
+        call_to_action: "Need Help?", 
+        position: "right",
+      };
+      var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
