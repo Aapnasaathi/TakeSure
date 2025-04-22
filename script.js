@@ -81,4 +81,24 @@ function sendWhatsApp(serviceName) {
   const whatsappLink = `https://wa.me/${adminNumber}?text=${encodedMessage}`;
   window.open(whatsappLink, "_blank");
 }
+const sidebar = document.querySelector('.sidebar');
+const menuToggle = document.querySelector('.menu-toggle');
+
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+// Sidebar link pe click hone par sidebar band ho jaye
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+  });
+});
+
+// Sidebar ke bahar click hone par sidebar band ho jaye
+document.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+    sidebar.classList.remove('active');
+  }
+});
 
