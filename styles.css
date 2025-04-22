@@ -313,3 +313,42 @@ footer .container {
   color: #666;
   font-size: 0.9rem;
 }
+/* Sidebar styles */
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  display: none; /* hidden by default */
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show hamburger icon only on mobile */
+  }
+}

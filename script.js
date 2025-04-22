@@ -65,4 +65,20 @@ function handleBooking(event) {
     );
   window.open(waUrl, '_blank');
 }
+// Toggle Sidebar
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  if (sidebar.style.width === "250px") {
+    sidebar.style.width = "0";
+  } else {
+    sidebar.style.width = "250px";
+  }
+}
+function sendWhatsApp(serviceName) {
+  const adminNumber = "7318090728"; // ← Change this to your actual WhatsApp number
+  const message = `Hello, I am looking for a ${serviceName} service. Please assist.`;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappLink = `https://wa.me/${adminNumber}?text=${encodedMessage}`;
+  window.open(whatsappLink, "_blank");
+}
 
