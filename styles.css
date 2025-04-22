@@ -322,17 +322,19 @@ footer .container {
 }
 
 .sidebar {
-  height: 100%;
-  width: 0;
   position: fixed;
-  z-index: 100;
   top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  transition: left 0.3s ease;
+  z-index: 1000;
 }
+.sidebar.active {
+  left: 0;
+}
+
 
 .sidebar a {
   padding: 10px 15px;
@@ -356,11 +358,17 @@ footer .container {
 }
 
 
+.menu-toggle {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .menu-icon {
-    display: block; /* Show hamburger icon only on mobile */
+  .menu-toggle {
+    display: block;  /* Show hamburger icon only on mobile */
   }
 }
+ 
+
 .header {
   display: flex;
   justify-content: space-between;
