@@ -452,3 +452,39 @@ footer .container {
     display: block;
   }
 }
+/* 1) Hide both by default */
+.top-bar,
+.hero-bar {
+  display: none;
+}
+
+/* 2) Mobile: show only the top-bar */
+@media (max-width: 768px) {
+  .top-bar {
+    display: block;
+    background: #007bff;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+/* 3) Desktop: show only the hero-bar */
+@media (min-width: 769px) {
+  .hero-bar {
+    display: block;
+  }
+}
+/* Button for per-row “Book Now” */
+.btn-book {
+  padding: 0.4rem 0.8rem;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn-book:hover {
+  background: #218838;
+}

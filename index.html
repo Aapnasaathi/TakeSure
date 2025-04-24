@@ -10,24 +10,26 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <header class="top-bar">
+    <div class="container topbar-container">
+      <h1 class="logo">ServiceSaathi</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
   
   
-<!-- Sidebar Hamburger Menu -->
-<header class="header">
-  <h1 class="logo">ServiceSaathi</h1>
-  <button class="menu-toggle">☰</button>
-</header>
+  
 
 
 <!-- Sidebar Content -->
 <nav class="sidebar">
   <ul>
-    <li><a href="#services">Our Services</a></li>
+    <li><a href="dynamic.html">Our Services</a></li>
     <!-- future buttons ke liye jagah chhodi ja sakti hai -->
   </ul>
 </nav>
 
-
+<header class="hero-bar">
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="container">
@@ -49,6 +51,7 @@
       <p>Your Local Service Marketplace</p>
     </div>
   </header>
+</header>
 
   <main class="container">
 
@@ -161,6 +164,10 @@
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
   </script>
+
+<footer style="text-align:center; padding:1rem 0; background:#f5f5f5; color:#666;">
+  &copy; 2025 ServiceSaathi. All rights reserved.
+</footer>
 
 </body>
 </html>

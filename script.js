@@ -8,18 +8,30 @@ fetch(url)
   .then(data => {
     const tbody = document.querySelector('#services-table tbody');
     data.forEach(row => {
+      // ← ADD these four lines:
+      const service = row['Service Name']  || '';
+      const role    = row['Role']          || '';
+      const status  = row['Status']        || '';
+      const price   = row['Price']         || '';
+
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td>${row['Service Name']}</td>
-        <td>${row['Role']}</td>
-        <td style="color: green; font-weight: bold;">${row['Status']}</td>
-        <td>₹${row['Price']}</td>
+        <td>${service}</td>
+        <td>${role}</td>
+        <td style="color: green; font-weight: bold;">${status}</td>
+        <td>₹${price}</td>
+        <td>
+          <button class="btn-book"
+                  onclick="sendWhatsApp('${service}')">
+            Book Now
+          </button>
+        </td>
       `;
-
       tbody.appendChild(tr);
     });
   })
   .catch(err => console.error(err));
+
 
   // Show/hide the “Other” text input in the booking form
 function toggleOther(value) {
