@@ -8,12 +8,13 @@ fetch(url)
   .then(data => {
     const tbody = document.querySelector('#services-table tbody');
     data.forEach(row => {
-      // ← ADD these four lines:
+      // Extract columns
       const service = row['Service Name']  || '';
       const role    = row['Role']          || '';
       const status  = row['Status']        || '';
       const price   = row['Price']         || '';
 
+      // Create row
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${service}</td>
@@ -21,16 +22,18 @@ fetch(url)
         <td style="color: green; font-weight: bold;">${status}</td>
         <td>₹${price}</td>
         <td>
-          <button class="btn-book"
-                  onclick="sendWhatsApp('${service}')">
-            Book Now
-          </button>
+          ${
+            service.trim().toLowerCase() === 'book biker'
+              ? `<button class="btn-book" style="background:#17a2b8" onclick="openRidePopup()">Book Ride</button>`
+              : `<button class="btn-book" onclick="sendWhatsApp('${service}')">Book Now</button>`
+          }
         </td>
       `;
       tbody.appendChild(tr);
     });
   })
   .catch(err => console.error(err));
+
 
 
   // Show/hide the “Other” text input in the booking form
@@ -114,3 +117,23 @@ document.addEventListener('click', (e) => {
   }
 });
 
+/* Book Rider clik krne pr Pop up Open hone ke liye */
+function openRidePopup() {
+  document.getElementById("ridePopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("ridePopup").style.display = "none";
+}
+
+function submitRide() {
+  const start = document.getElementById("startLocation").value;
+  const drop = document.getElementById("dropLocation").value;
+
+  if (start && drop) {
+    alert(`Ride booked from ${start} to ${drop}!`);
+    closePopup();
+  } else {
+    alert("Please fill both fields.");
+  }
+}

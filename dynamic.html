@@ -14,7 +14,7 @@
 
   <header>
     <h1>ServiceSaathi</h1>
-    <p>Services</p>
+    <p>Our Services</p>
   </header>
 
   <main>
@@ -55,5 +55,23 @@
 </footer>
 
   <script src="script.js"></script>
+
+  <!-- Book Rider clik krne pr Pop up Open hone ke liye -->
+  <div id="ridePopup" class="popup-overlay" style="display: none;">
+    <div class="popup-box">
+      <h3>Book a Ride</h3>
+      <label>
+        Starting Location:
+        <input type="text" id="startLocation" placeholder="Enter start point">
+      </label>
+      <label>
+        Drop Location:
+        <input type="text" id="dropLocation" placeholder="Enter drop point">
+      </label>
+      <button onclick="submitRide()">Submit</button>
+      <button onclick="closePopup()" style="background: gray;">Cancel</button>
+    </div>
+  </div>
+
 </body>
 </html>
